@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply px-8 py-3 mx-2 my-3 font-semibold text-white rounded-full shadow-xl;
+  }
+  .btn-cyan {
+    @apply bg-cyan-500 shadow-cyan-500/30;
+  }
+  .btn-sky {
+    @apply bg-sky-500 shadow-sky-500/30;
+  }
+  .btn-indigo {
+    @apply bg-indigo-500 shadow-indigo-500/30;
+  }
+  .btn-pink {
+    @apply bg-pink-500 shadow-pink-500/30;
+  }
+  .drop-default {
+    @apply flex flex-col h-48 max-h-screen border-2 border-dashed border-sky-300 w-96 place-items-center;
+  }
+  .drop-trigger {
+    @apply text-white border-0 border-white bg-sky-400 rounded-xl;
+  }
+}
