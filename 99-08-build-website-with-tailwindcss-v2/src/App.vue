@@ -1,15 +1,15 @@
 <template>
-  <empty>
-    <Header />
+  <div>
+    <Header :navigationList="navigationList" />
 
-    <Background />
+    <Background :navigationList="navigationList" />
 
     <Products />
 
     <Customer />
 
     <Form />
-  </empty>
+  </div>
 </template>
 <script>
 import { ref } from "vue";

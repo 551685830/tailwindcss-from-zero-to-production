@@ -71,27 +71,9 @@
 import { ref } from "vue";
 export default {
   name: "Background",
+  props: ['navigationList'],
   setup() {
-    const navigationList = ref([
-      {
-        link: "#",
-        text: "Home",
-      },
-      {
-        link: "#work",
-        text: "Work",
-      },
-      {
-        link: "#clients",
-        text: "Clients",
-      },
-      {
-        link: "#hire",
-        text: "Hire me",
-      },
-    ]);
     return {
-      navigationList,
     };
   },
 };
