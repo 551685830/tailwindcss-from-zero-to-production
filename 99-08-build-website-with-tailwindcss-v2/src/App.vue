@@ -45,39 +45,6 @@
           <div
             class="absolute space-y-6 transform -translate-x-1/2 left-50 mt-36"
           >
-            <!-- <a
-              href="#"
-              class="block border-4 rounded-full nav-dot selected-circle w-7 h-7 border-nav bg-body"
-            >
-              <span class="px-2 py-1 ml-10 bg-black rounded-md opacity-0"
-                >Home</span
-              >
-            </a>
-            <a
-              href="#work"
-              class="block border-4 rounded-full nav-dot w-7 h-7 border-nav bg-body"
-            >
-              <span class="px-2 py-1 ml-10 bg-black rounded-md opacity-0"
-                >Work</span
-              >
-            </a>
-            <a
-              href="#clients"
-              class="block border-4 rounded-full nav-dot w-7 h-7 border-nav bg-body"
-            >
-              <span class="px-2 py-1 ml-10 bg-black rounded-md opacity-0"
-                >Clients</span
-              >
-            </a>
-            <a
-              href="#hire"
-              class="block border-4 rounded-full nav-dot w-7 h-7 border-nav bg-body"
-            >
-              <span class="px-2 py-1 ml-10 bg-black rounded-md opacity-0"
-                >Hire</span
-              >
-            </a> -->
-
             <a
               v-for="(navigator, index) in navigationList"
               :key="index"
@@ -148,40 +115,10 @@
 
         <div class="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2 lg:grid-cols-3">
           <img
-            src="https://images.unsplash.com/photo-1576153192396-180ecef2a715?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
-            class="object-cover w-full bg-nav h-36 lg:h-72"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-            class="object-cover w-full bg-nav h-36 lg:h-72"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
-            class="hidden object-cover w-full md:block bg-nav h-36 lg:h-72"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1558655146-d09347e92766?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80"
-            class="hidden object-cover w-full md:block bg-nav h-36 lg:h-72"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1547119957-637f8679db1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-            class="hidden object-cover w-full md:block bg-nav h-36 lg:h-72"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1336&q=80"
-            class="hidden object-cover w-full md:block bg-nav h-36 lg:h-72"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1603969072881-b0fc7f3d77d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80s"
-            class="hidden object-cover w-full md:block bg-nav h-36 lg:h-72"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            class="hidden object-cover w-full md:block bg-nav h-36 lg:h-72"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1545235617-7a424c1a60cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80"
-            class="hidden object-cover w-full md:block md:col-span-2 lg:col-span-1 bg-nav h-36 lg:h-72"
+            v-for="(imagePreview, index) in imagePreviewList"
+            :key="index"
+            :src="imagePreview.imageUrl"
+            :class="imagePreview.displayCss"
           />
         </div>
       </section>
@@ -201,6 +138,8 @@
         <!-- Clients -->
         <div class="my-16 space-y-12">
           <div
+            v-for="(customer, index) in customerList"
+            :key="index"
             class="flex flex-wrap justify-center w-full p-16 border border-nav lg:px-32 lg:py-20 lg:space-x-32 lg:justify-start lg:flex-nowrap"
           >
             <!-- Client logo -->
@@ -223,94 +162,19 @@
             <div
               class="flex flex-wrap justify-center text-center lg:text-left lg:block"
             >
-              <h3 class="text-3xl font-semibold text-white">Apple, inc.</h3>
+              <h3 class="text-3xl font-semibold text-white">
+                {{ customer.brandName }}
+              </h3>
 
               <div
                 class="flex flex-wrap justify-center w-full gap-3 mt-6 mb-8 lg:w-auto lg:justify-start"
               >
-                <div class="badge">UI/UX</div>
-                <div class="badge">Frontend development</div>
+                <div class="badge">{{ customer.type }}</div>
+                <div class="badge">{{ customer.tags }}</div>
               </div>
 
               <p class="text-secondary">
-                I’ve had the pleasure of working with multiple Fortune 500
-                companies, designing and implementing both frontend and backend.
-              </p>
-            </div>
-          </div>
-          <div
-            class="flex flex-wrap justify-center w-full p-16 border border-nav lg:px-32 lg:py-20 lg:space-x-32 lg:justify-start lg:flex-nowrap"
-          >
-            <!-- Client logo -->
-            <div class="mb-6 lg:mb-0">
-              <svg
-                width="80"
-                height="96"
-                viewBox="0 0 80 96"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M66.6983 92.1599C61.5487 97.2095 55.867 96.4223 50.4513 94.0415C44.6936 91.6127 39.4299 91.4591 33.3492 94.0415C25.7767 97.3439 21.7577 96.3839 17.1972 92.1599C-8.55106 65.3759 -4.75058 24.5759 24.5131 23.0399C31.6105 23.4239 36.5796 27.0047 40.7601 27.3023C46.9739 26.0255 52.9216 22.3679 59.5724 22.8479C67.5629 23.5007 73.5392 26.6879 77.5297 32.4191C61.0926 42.4031 64.9881 64.2911 80.0855 70.4351C77.0641 78.4511 73.1876 86.3711 66.6888 92.2271L66.6983 92.1599ZM40.19 22.7519C39.4204 10.8479 48.9691 1.05595 59.9525 0.0959473C61.4632 13.8239 47.6009 24.0959 40.19 22.7519Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-
-            <!-- Client info -->
-            <div
-              class="flex flex-wrap justify-center text-center lg:text-left lg:block"
-            >
-              <h3 class="text-3xl font-semibold text-white">Apple, inc.</h3>
-
-              <div
-                class="flex flex-wrap justify-center w-full gap-3 mt-6 mb-8 lg:w-auto lg:justify-start"
-              >
-                <div class="badge">UI/UX</div>
-                <div class="badge">Frontend development</div>
-              </div>
-
-              <p class="text-secondary">
-                I’ve had the pleasure of working with multiple Fortune 500
-                companies, designing and implementing both frontend and backend.
-              </p>
-            </div>
-          </div>
-          <div
-            class="flex flex-wrap justify-center w-full p-16 border border-nav lg:px-32 lg:py-20 lg:space-x-32 lg:justify-start lg:flex-nowrap"
-          >
-            <!-- Client logo -->
-            <div class="mb-6 lg:mb-0">
-              <svg
-                width="80"
-                height="96"
-                viewBox="0 0 80 96"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M66.6983 92.1599C61.5487 97.2095 55.867 96.4223 50.4513 94.0415C44.6936 91.6127 39.4299 91.4591 33.3492 94.0415C25.7767 97.3439 21.7577 96.3839 17.1972 92.1599C-8.55106 65.3759 -4.75058 24.5759 24.5131 23.0399C31.6105 23.4239 36.5796 27.0047 40.7601 27.3023C46.9739 26.0255 52.9216 22.3679 59.5724 22.8479C67.5629 23.5007 73.5392 26.6879 77.5297 32.4191C61.0926 42.4031 64.9881 64.2911 80.0855 70.4351C77.0641 78.4511 73.1876 86.3711 66.6888 92.2271L66.6983 92.1599ZM40.19 22.7519C39.4204 10.8479 48.9691 1.05595 59.9525 0.0959473C61.4632 13.8239 47.6009 24.0959 40.19 22.7519Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-
-            <!-- Client info -->
-            <div
-              class="flex flex-wrap justify-center text-center lg:text-left lg:block"
-            >
-              <h3 class="text-3xl font-semibold text-white">Apple, inc.</h3>
-
-              <div
-                class="flex flex-wrap justify-center w-full gap-3 mt-6 mb-8 lg:w-auto lg:justify-start"
-              >
-                <div class="badge">UI/UX</div>
-                <div class="badge">Frontend development</div>
-              </div>
-
-              <p class="text-secondary">
-                I’ve had the pleasure of working with multiple Fortune 500
-                companies, designing and implementing both frontend and backend.
+                {{ customer.description }}
               </p>
             </div>
           </div>
@@ -436,8 +300,83 @@ export default {
       },
     ]);
 
+    const imagePreviewList = ref([
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1576153192396-180ecef2a715?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80",
+        displayCss: "object-cover w-full bg-nav h-36 lg:h-72",
+      },
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+        displayCss: "object-cover w-full bg-nav h-36 lg:h-72",
+      },
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+        displayCss: "hidden object-cover w-full md:block bg-nav h-36 lg:h-72",
+      },
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1558655146-d09347e92766?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80",
+        displayCss: "hidden object-cover w-full md:block bg-nav h-36 lg:h-72",
+      },
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1547119957-637f8679db1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+        displayCss: "hidden object-cover w-full md:block bg-nav h-36 lg:h-72",
+      },
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1336&q=80",
+        displayCss: "hidden object-cover w-full md:block bg-nav h-36 lg:h-72",
+      },
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1603969072881-b0fc7f3d77d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80s",
+        displayCss: "hidden object-cover w-full md:block bg-nav h-36 lg:h-72",
+      },
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1618761714954-0b8cd0026356?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        displayCss: "hidden object-cover w-full md:block bg-nav h-36 lg:h-72",
+      },
+      {
+        imageUrl:
+          "https://images.unsplash.com/photo-1545235617-7a424c1a60cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80",
+        displayCss:
+          "hidden object-cover w-full md:block md:col-span-2 lg:col-span-1 bg-nav h-36 lg:h-72",
+      },
+    ]);
+
+    const customerList = ref([
+      {
+        brandName: "Apple, inc.",
+        type: "UI/UX",
+        tags: "Frontend development",
+        description:
+          "I’ve had the pleasure of working with multiple Fortune 500 companies, designing and implementing both frontend and backend.",
+      },
+      {
+        brandName: "Apple, inc.",
+        type: "UI/UX",
+        tags: "Frontend development",
+        description:
+          "I’ve had the pleasure of working with multiple Fortune 500 companies, designing and implementing both frontend and backend.",
+      },
+      {
+        brandName: "Apple, inc.",
+        type: "UI/UX",
+        tags: "Frontend development",
+        description:
+          "I’ve had the pleasure of working with multiple Fortune 500 companies, designing and implementing both frontend and backend.",
+      },
+    ]);
+
     return {
       navigationList,
+      imagePreviewList,
+      customerList,
     };
   },
 };
